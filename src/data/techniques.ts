@@ -21,6 +21,7 @@ export const techCategories: TechCategory[] = [
   { id: "nudos", nombre: "Nudos", icono: "🪢", color: "from-amber-700 to-yellow-500" },
   { id: "senales", nombre: "Señales de Pista", icono: "🧭", color: "from-emerald-700 to-green-500" },
   { id: "primeros-auxilios", nombre: "Primeros Auxilios", icono: "🏥", color: "from-red-700 to-rose-500" },
+  { id: "manual-salud", nombre: "Manual de Salud", icono: "💊", color: "from-pink-700 to-fuchsia-500" },
   { id: "campismo", nombre: "Campismo", icono: "⛺", color: "from-blue-700 to-cyan-500" },
 ];
 
@@ -383,5 +384,203 @@ export const techniques: Technique[] = [
     ],
     dificultad: "fácil",
     icono: "🎒"
+  },
+
+  // === MANUAL DE SALUD ===
+  {
+    id: "salud-deshidratacion",
+    nombre: "Deshidratación",
+    categoria: "manual-salud",
+    descripcion: "Ocurre cuando el cuerpo pierde más líquidos de los que ingiere. Común en actividades al aire libre con calor.",
+    pasos: [
+      "Identifica los síntomas: boca seca, mareo, dolor de cabeza, orina oscura, debilidad.",
+      "Lleva a la persona a la sombra y hazla sentar o acostar.",
+      "Dale agua o suero oral a pequeños sorbos (nunca de golpe).",
+      "Si no tienes suero, mezcla: 1 litro de agua + 6 cucharaditas de azúcar + 1/2 cucharadita de sal.",
+      "Afloja la ropa y refresca con paños húmedos en frente y cuello.",
+      "Si no mejora en 30 minutos o pierde el conocimiento, busca atención médica urgente."
+    ],
+    consejos: ["Prevención: beber agua cada 20-30 min durante actividades.", "No esperar a tener sed para hidratarse."],
+    dificultad: "fácil",
+    icono: "💧"
+  },
+  {
+    id: "salud-reaccion-alergica",
+    nombre: "Reacción Alérgica",
+    categoria: "manual-salud",
+    descripcion: "Respuesta del cuerpo a alimentos, picaduras o sustancias. Puede ser leve (ronchas) o grave (anafilaxia).",
+    pasos: [
+      "Alérgica LEVE (ronchas, picazón, estornudos): retira el alérgeno, lava la zona, aplica compresas frías.",
+      "Si tiene antihistamínico recetado, ayúdalo a tomarlo.",
+      "Alérgica GRAVE (hinchazón de labios/garganta, dificultad para respirar, mareo): LLAMA A EMERGENCIAS de inmediato.",
+      "Si la persona tiene epinefrina autoinyectable (EpiPen), ayúdala a usarla en el muslo externo.",
+      "Acuéstala con las piernas elevadas (si puede respirar). Si no puede respirar bien, siéntala.",
+      "Vigila su respiración constantemente hasta que llegue la ayuda.",
+      "NUNCA le des de comer o beber si tiene dificultad para respirar."
+    ],
+    consejos: ["SIEMPRE pregunta por alergias antes de cada campamento.", "Ten un registro de alergias de cada scout.", "Los alérgenos más comunes: maní, mariscos, picaduras de abeja, látex, medicamentos."],
+    dificultad: "medio",
+    icono: "🤧"
+  },
+  {
+    id: "salud-asma",
+    nombre: "Crisis de Asma",
+    categoria: "manual-salud",
+    descripcion: "Dificultad para respirar causada por inflamación de las vías respiratorias. Puede ocurrir por esfuerzo, alérgenos o frío.",
+    pasos: [
+      "Mantén la calma y tranquiliza a la persona.",
+      "Siéntala en posición cómoda (ligeramente inclinada hacia adelante).",
+      "Ayúdala a usar su inhalador de rescate (2 inhalaciones, esperar 1 minuto, repetir si no mejora).",
+      "Afloja ropa apretada alrededor del pecho y cuello.",
+      "Aléjala de posibles desencadenantes (humo, polvo, frío).",
+      "Si no tiene inhalador o no mejora en 10-15 minutos, llama a emergencias.",
+      "Si empeora (labios azulados, no puede hablar), es emergencia: llama al 123."
+    ],
+    consejos: ["Los scouts asmáticos deben llevar siempre su inhalador.", "Registra qué scouts tienen asma antes de cada actividad."],
+    dificultad: "medio",
+    icono: "🫁"
+  },
+  {
+    id: "salud-dolor-estomago",
+    nombre: "Dolor de Estómago / Diarrea",
+    categoria: "manual-salud",
+    descripcion: "Malestar digestivo común en campamentos por cambio de alimentación, agua o nervios.",
+    pasos: [
+      "Haz que la persona descanse acostada en posición cómoda.",
+      "Dale líquidos claros: agua, suero oral, agua de arroz.",
+      "Evita alimentos sólidos, grasosos o lácteos por unas horas.",
+      "Si hay diarrea, hidratar constantemente con suero oral.",
+      "Si hay vómito, esperar 30 minutos antes de dar líquidos (a sorbos pequeños).",
+      "Si hay fiebre alta, sangre en las heces o dolor intenso, busca atención médica."
+    ],
+    consejos: ["Prevención: lavarse las manos antes de comer, usar agua potabilizada.", "Llevar siempre suero oral en el botiquín."],
+    dificultad: "fácil",
+    icono: "🤢"
+  },
+  {
+    id: "salud-fiebre",
+    nombre: "Fiebre en Campamento",
+    categoria: "manual-salud",
+    descripcion: "Temperatura corporal elevada (mayor a 38°C). Puede indicar infección, insolación o agotamiento.",
+    pasos: [
+      "Mide la temperatura con termómetro (si está disponible).",
+      "Acuesta a la persona en lugar fresco y ventilado.",
+      "Retira exceso de ropa y cúbrelo con una sábana ligera.",
+      "Aplica paños de agua tibia (NO helada) en frente, axilas y cuello.",
+      "Dale abundante agua y suero oral.",
+      "Si tiene acetaminofén (y no es alérgico), administrar según su peso/edad.",
+      "Si la fiebre supera 39.5°C o dura más de 24 horas, busca atención médica."
+    ],
+    consejos: ["NO uses alcohol para bajar la fiebre.", "NO abrigues en exceso a alguien con fiebre."],
+    dificultad: "fácil",
+    icono: "🌡️"
+  },
+  {
+    id: "salud-hipotermia",
+    nombre: "Hipotermia",
+    categoria: "manual-salud",
+    descripcion: "Temperatura corporal baja (menor a 35°C). Ocurre por exposición prolongada al frío o mojarse con viento.",
+    pasos: [
+      "Identifica: temblores, confusión, torpeza, piel fría y pálida, somnolencia.",
+      "Lleva a la persona a un lugar seco y protegido del viento.",
+      "Retira TODA la ropa mojada.",
+      "Envuélvela en mantas, sacos de dormir o ropa seca (incluida la cabeza).",
+      "Dale bebidas calientes y dulces (NO alcohol, NO café).",
+      "Si está consciente, usa calor corporal: otra persona se acuesta junto a ella en el saco.",
+      "Si pierde el conocimiento o los temblores cesan (grave): llama a emergencias de inmediato."
+    ],
+    consejos: ["Calienta gradualmente, nunca con agua caliente directa.", "La hipotermia puede ocurrir incluso a 10°C si hay viento y humedad."],
+    dificultad: "avanzado",
+    icono: "🥶"
+  },
+  {
+    id: "salud-convulsiones",
+    nombre: "Convulsiones / Epilepsia",
+    categoria: "manual-salud",
+    descripcion: "Movimientos involuntarios causados por actividad eléctrica anormal en el cerebro. Requiere calma y protección.",
+    pasos: [
+      "Mantén la CALMA. No intentes sujetar a la persona ni detener los movimientos.",
+      "Despeja el área de objetos que puedan lastimarla.",
+      "Coloca algo suave bajo su cabeza (chaqueta, toalla).",
+      "NUNCA metas nada en su boca (ni dedos, ni cucharas, ni tela).",
+      "Pon a la persona de lado (posición de recuperación) para evitar que se ahogue.",
+      "Toma el tiempo: si dura más de 5 minutos, llama a emergencias.",
+      "Quédate con ella hasta que recupere la conciencia. Habla con calma."
+    ],
+    consejos: ["Pregunta siempre si algún scout tiene epilepsia.", "Después de una convulsión la persona estará confundida: no la bombardees con preguntas."],
+    dificultad: "avanzado",
+    icono: "⚡"
+  },
+  {
+    id: "salud-fractura",
+    nombre: "Posible Fractura",
+    categoria: "manual-salud",
+    descripcion: "Lesión ósea por caída o golpe fuerte. Dolor intenso, hinchazón, deformidad o incapacidad de mover la zona.",
+    pasos: [
+      "NO muevas la zona lesionada. Inmoviliza en la posición que está.",
+      "Si hay herida abierta, cubre con gasa estéril sin presionar el hueso.",
+      "Inmoviliza usando un entablillado improvisado (palos, cartón, revista) y vendas.",
+      "El entablillado debe cubrir la articulación de arriba y de abajo de la fractura.",
+      "Aplica hielo envuelto en tela cerca (no directamente sobre la piel).",
+      "Eleva la extremidad si es posible.",
+      "Traslada a la persona a atención médica SIN mover la zona fracturada."
+    ],
+    consejos: ["Ante la duda, trata como fractura.", "NUNCA intentes 'acomodar' un hueso."],
+    dificultad: "avanzado",
+    icono: "🦴"
+  },
+  {
+    id: "salud-sangrado-nariz",
+    nombre: "Sangrado de Nariz",
+    categoria: "manual-salud",
+    descripcion: "Hemorragia nasal común por calor, golpes, sequedad o esfuerzo. Generalmente no es grave.",
+    pasos: [
+      "Sienta a la persona con la cabeza ligeramente inclinada HACIA ADELANTE (NO hacia atrás).",
+      "Presiona ambas fosas nasales con los dedos por 10 minutos sin soltar.",
+      "Que respire por la boca mientras tanto.",
+      "Aplica una compresa fría en el puente de la nariz.",
+      "Después de 10 minutos, suelta lentamente. Si sigue sangrando, repite otros 10 minutos.",
+      "Si no para después de 20-30 minutos, busca atención médica."
+    ],
+    consejos: ["NO inclinar la cabeza hacia atrás: la sangre puede ir al estómago y causar vómito.", "No sonarse la nariz después del sangrado por al menos 2 horas."],
+    dificultad: "fácil",
+    icono: "👃"
+  },
+  {
+    id: "salud-mordedura-serpiente",
+    nombre: "Mordedura de Serpiente",
+    categoria: "manual-salud",
+    descripcion: "Emergencia que requiere atención médica inmediata. Lo más importante es mantener la calma y trasladar al hospital.",
+    pasos: [
+      "Mantén a la víctima en CALMA y quieta (el movimiento acelera la dispersión del veneno).",
+      "Acuesta a la persona y mantén la zona mordida por debajo del nivel del corazón.",
+      "Retira anillos, pulseras o ropa ajustada cerca de la mordedura (se hinchará).",
+      "Lava la herida suavemente con agua y jabón.",
+      "NO hagas torniquete, NO chupes el veneno, NO apliques hielo, NO cortes la herida.",
+      "Si puedes, toma foto de la serpiente (a distancia segura) para identificarla.",
+      "Traslada al hospital lo más rápido posible. Llama al 123."
+    ],
+    consejos: ["El 80% de las mordeduras de serpiente NO son venenosas, pero siempre trata como si lo fuera.", "Lleva siempre botas altas y bastón en zonas de campo."],
+    dificultad: "avanzado",
+    icono: "🐍"
+  },
+  {
+    id: "salud-botiquin",
+    nombre: "Botiquín Scout Básico",
+    categoria: "manual-salud",
+    descripcion: "Lista esencial de lo que debe contener el botiquín de tu grupo para campamentos y actividades.",
+    pasos: [
+      "Gasas estériles, esparadrapo, vendas elásticas y curitas de varios tamaños.",
+      "Antiséptico (yodo o clorhexidina), agua oxigenada, suero fisiológico.",
+      "Guantes desechables (mínimo 5 pares).",
+      "Tijeras de punta roma, pinzas, termómetro.",
+      "Acetaminofén, suero oral, antihistamínico (con prescripción).",
+      "Protector solar, repelente de insectos.",
+      "Linterna pequeña, manta térmica, bolsas plásticas.",
+      "Lista de emergencias, teléfonos de padres y registro de alergias de cada scout."
+    ],
+    consejos: ["Revisa el botiquín antes de CADA salida: repón lo que falte.", "Asigna un responsable del botiquín por patrulla.", "Verifica fechas de vencimiento cada 3 meses."],
+    dificultad: "fácil",
+    icono: "🧰"
   },
 ];
