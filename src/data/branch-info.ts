@@ -51,18 +51,16 @@ export const branchInfoMap: Record<string, BranchInfo> = {
     promesa:
       "Prometo hacer siempre lo mejor por cumplir mis deberes para con Dios y la Patria, obedecer la Ley de la Manada y hacer una Buena Acción a alguien cada día.",
     ley: [
-      "El lobato escucha y obedece al Viejo Lobo.",
-      "El lobato se vence a sí mismo.",
+      "El Lobato escucha y obedece al Viejo Lobo.",
+      "El Lobato se vence a sí mismo.",
     ],
     leyTitulo: "Ley de la Manada (2 artículos)",
     maximas: [
-      "El lobato escucha y respeta a los otros.",
-      "El lobato es alegre y amigable.",
-      "El lobato siempre dice la verdad.",
-      "El lobato comparte con su familia.",
-      "El lobato ayuda a los demás.",
-      "El lobato cuida la naturaleza.",
-      "El lobato desea aprender y vencerse a sí mismo.",
+      "El Lobato piensa primero en los demás.",
+      "El Lobato tiene los ojos y los oídos bien abiertos.",
+      "El Lobato es limpio y ordenado.",
+      "El Lobato es alegre.",
+      "El Lobato siempre dice la verdad.",
     ],
     oracion:
       "Oh, dulce y buen Señor mío, enséñame a ser humilde y bondadoso, a imitar tu ejemplo, a amarte con todo mi corazón y a seguir el camino que me ha de llevar al cielo junto a Ti. Por San Francisco de Asís… ¡Rogad por los Lobatos!",
