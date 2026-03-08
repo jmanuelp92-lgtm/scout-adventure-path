@@ -103,23 +103,28 @@
 
 @layer components {
   .stage-badge-1 {
-    background-color: hsl(var(--stage-1));
-    color: hsl(40 40% 98%);
+    background-color: hsl(var(--stage-1) / 0.15);
+    color: hsl(var(--stage-1));
+    font-weight: 700;
   }
   .stage-badge-2 {
-    background-color: hsl(var(--stage-2));
-    color: hsl(40 40% 98%);
+    background-color: hsl(var(--stage-2) / 0.15);
+    color: hsl(var(--stage-2));
+    font-weight: 700;
   }
   .stage-badge-3 {
-    background-color: hsl(var(--stage-3));
-    color: hsl(40 40% 98%);
+    background-color: hsl(var(--stage-3) / 0.15);
+    color: hsl(var(--stage-3));
+    font-weight: 700;
   }
   .stage-badge-4 {
-    background-color: hsl(var(--stage-4));
-    color: hsl(40 40% 98%);
+    background-color: hsl(var(--stage-4) / 0.15);
+    color: hsl(var(--stage-4));
+    font-weight: 700;
   }
   .stage-badge-5 {
-    background-color: hsl(var(--stage-5));
-    color: hsl(40 40% 98%);
+    background-color: hsl(var(--stage-5) / 0.15);
+    color: hsl(var(--stage-5));
+    font-weight: 700;
   }
 }
