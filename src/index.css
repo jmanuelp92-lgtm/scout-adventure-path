@@ -6,41 +6,41 @@
 
 @layer base {
   :root {
-    --background: 40 33% 96%;
-    --foreground: 25 30% 15%;
+    --background: 140 15% 96%;
+    --foreground: 155 40% 10%;
 
-    --card: 40 40% 98%;
-    --card-foreground: 25 30% 15%;
+    --card: 140 20% 98%;
+    --card-foreground: 155 40% 10%;
 
-    --popover: 40 40% 98%;
-    --popover-foreground: 25 30% 15%;
+    --popover: 140 20% 98%;
+    --popover-foreground: 155 40% 10%;
 
-    --primary: 145 45% 28%;
-    --primary-foreground: 40 40% 98%;
+    --primary: 155 60% 20%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 35 60% 52%;
-    --secondary-foreground: 40 40% 98%;
+    --secondary: 0 75% 45%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 40 20% 90%;
-    --muted-foreground: 25 15% 45%;
+    --muted: 140 10% 90%;
+    --muted-foreground: 155 15% 40%;
 
-    --accent: 45 80% 55%;
-    --accent-foreground: 25 30% 15%;
+    --accent: 0 75% 45%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 35 25% 82%;
-    --input: 35 25% 82%;
-    --ring: 145 45% 28%;
+    --border: 155 15% 82%;
+    --input: 155 15% 82%;
+    --ring: 155 60% 20%;
 
     --radius: 0.75rem;
 
-    --stage-1: 145 50% 35%;
-    --stage-2: 35 65% 50%;
-    --stage-3: 200 55% 45%;
-    --stage-4: 15 60% 50%;
-    --stage-5: 280 40% 45%;
+    --stage-1: 155 60% 25%;
+    --stage-2: 0 70% 45%;
+    --stage-3: 40 70% 45%;
+    --stage-4: 200 55% 40%;
+    --stage-5: 155 45% 35%;
 
     --font-display: 'Fredoka', sans-serif;
     --font-body: 'Nunito', sans-serif;
