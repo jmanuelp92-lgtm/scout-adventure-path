@@ -21,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/cancionero" element={<Cancionero />} />
           <Route path="/:branchId" element={<BranchView />} />
           <Route path="/:branchId/encuentro/:id" element={<EncounterDetail />} />
           <Route path="*" element={<NotFound />} />
