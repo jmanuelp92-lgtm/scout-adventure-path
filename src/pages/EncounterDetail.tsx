@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock, Target, Quote, FileDown, CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
@@ -12,13 +12,30 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
+// Helper: load image as base64 for jsPDF
+function loadImageAsBase64(src: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext("2d");
+      ctx?.drawImage(img, 0, 0);
+      resolve(canvas.toDataURL("image/png"));
+    };
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
 export default function EncounterDetail() {
   const { branchId, id } = useParams();
   const encounter = getEncounterByBranchAndId(branchId || "", Number(id));
   const branch = getBranchById(branchId || "");
   const stages = getStagesByBranch(branchId || "");
   const [executionDate, setExecutionDate] = useState<Date>();
-  const printRef = useRef<HTMLDivElement>(null);
 
   if (!encounter || !branch) {
     return (
@@ -37,55 +54,189 @@ export default function EncounterDetail() {
   const nextId = encounter.id < 50 ? encounter.id + 1 : null;
 
   const handleExportPDF = async () => {
-    const { default: html2canvas } = await import("html2canvas-pro");
     const { default: jsPDF } = await import("jspdf");
 
-    const element = printRef.current;
-    if (!element) return;
+    const pdf = new jsPDF("p", "mm", "letter");
+    const pageW = pdf.internal.pageSize.getWidth();
+    const pageH = pdf.internal.pageSize.getHeight();
+    const marginL = 18;
+    const marginR = 18;
+    const contentW = pageW - marginL - marginR;
+    let y = 15;
 
-    // Temporarily show the print content
-    element.style.display = "block";
+    const checkPage = (needed: number) => {
+      if (y + needed > pageH - 20) {
+        pdf.addPage();
+        y = 15;
+        drawHeaderLine();
+      }
+    };
 
-    const canvas = await html2canvas(element, {
-      scale: 2,
-      useCORS: true,
-      logging: false,
-      backgroundColor: "#ffffff",
+    const drawHeaderLine = () => {
+      pdf.setDrawColor(26, 86, 50);
+      pdf.setLineWidth(0.5);
+      pdf.line(marginL, y, pageW - marginR, y);
+      y += 6;
+    };
+
+    // --- HEADER WITH LOGO ---
+    let logoBase64: string | null = null;
+    try {
+      logoBase64 = await loadImageAsBase64(logoScout);
+    } catch { /* skip logo */ }
+
+    if (logoBase64) {
+      pdf.addImage(logoBase64, "PNG", marginL, y, 18, 18);
+    }
+
+    const headerX = logoBase64 ? marginL + 22 : marginL;
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(16);
+    pdf.setTextColor(26, 86, 50);
+    pdf.text("Escuela Scout", headerX, y + 7);
+    pdf.setFontSize(11);
+    pdf.setTextColor(60, 60, 60);
+    pdf.text("Grupo Scout 2 Caballeros de Don Bosco", headerX, y + 13);
+    pdf.setFontSize(9);
+    pdf.setTextColor(130, 130, 130);
+    pdf.text("Cúcuta — Colombia", headerX, y + 18);
+
+    y += 24;
+    pdf.setDrawColor(26, 86, 50);
+    pdf.setLineWidth(0.8);
+    pdf.line(marginL, y, pageW - marginR, y);
+    y += 8;
+
+    // --- META INFO ---
+    pdf.setFontSize(10);
+    pdf.setTextColor(80, 80, 80);
+    pdf.setFont("helvetica", "normal");
+    pdf.text(`Rama: ${branch.nombre}`, marginL, y);
+    pdf.text(`Etapa ${encounter.etapa}: ${stageName}`, marginL + 55, y);
+    pdf.text(`Duración: ${totalMinutes} min`, marginL + 120, y);
+    y += 6;
+
+    if (executionDate) {
+      pdf.setFont("helvetica", "bold");
+      pdf.setTextColor(26, 86, 50);
+      pdf.text(`Fecha de ejecución: ${format(executionDate, "EEEE d 'de' MMMM 'de' yyyy", { locale: es })}`, marginL, y);
+      pdf.setFont("helvetica", "normal");
+      y += 6;
+    }
+
+    y += 4;
+
+    // --- ENCOUNTER TITLE ---
+    pdf.setFillColor(240, 247, 243);
+    pdf.roundedRect(marginL, y, contentW, 28, 3, 3, "F");
+    pdf.setFontSize(15);
+    pdf.setFont("helvetica", "bold");
+    pdf.setTextColor(26, 26, 26);
+    const titleLines = pdf.splitTextToSize(`Encuentro #${encounter.id}: ${encounter.titulo}`, contentW - 10);
+    pdf.text(titleLines, marginL + 5, y + 8);
+    y += 12 + titleLines.length * 5;
+
+    pdf.setFontSize(10);
+    pdf.setFont("helvetica", "normal");
+    pdf.setTextColor(60, 60, 60);
+    const objLines = pdf.splitTextToSize(`Objetivo: ${encounter.objetivo}`, contentW - 10);
+    pdf.text(objLines, marginL + 5, y);
+    y += objLines.length * 5 + 2;
+
+    pdf.setFont("helvetica", "italic");
+    pdf.setTextColor(100, 100, 100);
+    const lemaLines = pdf.splitTextToSize(`"${encounter.lema}"`, contentW - 10);
+    pdf.text(lemaLines, marginL + 5, y);
+    y += lemaLines.length * 5 + 8;
+
+    // --- ACTIVITIES ---
+    const typeLabels: Record<string, string> = {
+      ceremonia: "Ceremonia", juego: "Juego", técnica: "Técnica",
+      descanso: "Descanso", actividad: "Actividad", reflexión: "Reflexión",
+    };
+
+    encounter.actividades.forEach((act, i) => {
+      // Estimate height needed
+      const descLines = pdf.splitTextToSize(act.descripcion, contentW - 12);
+      const instrLines = act.instrucciones.flatMap(inst => pdf.splitTextToSize(`• ${inst}`, contentW - 18));
+      const matText = act.materiales?.length ? `Materiales: ${act.materiales.join(", ")}` : "";
+      const matLines = matText ? pdf.splitTextToSize(matText, contentW - 12) : [];
+      const blockH = 18 + descLines.length * 4.5 + matLines.length * 4.5 + instrLines.length * 4.5 + 10;
+
+      checkPage(Math.min(blockH, 60));
+
+      // Activity header bar
+      pdf.setFillColor(26, 86, 50);
+      pdf.roundedRect(marginL, y, contentW, 8, 2, 2, "F");
+      pdf.setFontSize(9);
+      pdf.setFont("helvetica", "bold");
+      pdf.setTextColor(255, 255, 255);
+      const label = typeLabels[act.tipo] || act.tipo;
+      pdf.text(`${i + 1}. ${label.toUpperCase()} · ${act.duracion} MIN`, marginL + 4, y + 5.5);
+      y += 11;
+
+      // Title
+      pdf.setFontSize(12);
+      pdf.setFont("helvetica", "bold");
+      pdf.setTextColor(26, 26, 26);
+      const actTitleLines = pdf.splitTextToSize(act.titulo, contentW - 8);
+      pdf.text(actTitleLines, marginL + 4, y);
+      y += actTitleLines.length * 5 + 2;
+
+      // Description
+      pdf.setFontSize(10);
+      pdf.setFont("helvetica", "normal");
+      pdf.setTextColor(60, 60, 60);
+      descLines.forEach((line: string) => {
+        checkPage(5);
+        pdf.text(line, marginL + 4, y);
+        y += 4.5;
+      });
+      y += 2;
+
+      // Materials
+      if (matLines.length > 0) {
+        checkPage(matLines.length * 4.5 + 4);
+        pdf.setFont("helvetica", "bold");
+        pdf.setTextColor(80, 80, 80);
+        pdf.setFontSize(9);
+        matLines.forEach((line: string) => {
+          pdf.text(line, marginL + 4, y);
+          y += 4.5;
+        });
+        pdf.setFont("helvetica", "normal");
+        y += 2;
+      }
+
+      // Instructions
+      if (instrLines.length > 0) {
+        checkPage(8);
+        pdf.setFontSize(9);
+        pdf.setFont("helvetica", "bold");
+        pdf.setTextColor(26, 26, 26);
+        pdf.text("Instrucciones:", marginL + 4, y);
+        y += 5;
+        pdf.setFont("helvetica", "normal");
+        pdf.setTextColor(50, 50, 50);
+        instrLines.forEach((line: string) => {
+          checkPage(5);
+          pdf.text(line, marginL + 8, y);
+          y += 4.5;
+        });
+      }
+
+      y += 8;
     });
 
-    element.style.display = "none";
-
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF("p", "mm", "a4");
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = pdf.internal.pageSize.getHeight();
-    const imgWidth = canvas.width;
-    const imgHeight = canvas.height;
-    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-    const scaledWidth = imgWidth * ratio;
-    const scaledHeight = imgHeight * ratio;
-
-    // If content is taller than one page, split into multiple pages
-    const pageContentHeight = pdfHeight * (imgWidth / pdfWidth);
-    const totalPages = Math.ceil(imgHeight / pageContentHeight);
-
-    for (let page = 0; page < totalPages; page++) {
-      if (page > 0) pdf.addPage();
-      const srcY = page * pageContentHeight;
-      const srcH = Math.min(pageContentHeight, imgHeight - srcY);
-      const destH = srcH * ratio;
-
-      // Create a temporary canvas for this page slice
-      const pageCanvas = document.createElement("canvas");
-      pageCanvas.width = imgWidth;
-      pageCanvas.height = srcH;
-      const ctx = pageCanvas.getContext("2d");
-      if (ctx) {
-        ctx.drawImage(canvas, 0, srcY, imgWidth, srcH, 0, 0, imgWidth, srcH);
-        const pageImgData = pageCanvas.toDataURL("image/png");
-        pdf.addImage(pageImgData, "PNG", 0, 0, pdfWidth, destH);
-      }
-    }
+    // --- FOOTER ---
+    checkPage(15);
+    pdf.setDrawColor(26, 86, 50);
+    pdf.setLineWidth(0.5);
+    pdf.line(marginL, y, pageW - marginR, y);
+    y += 5;
+    pdf.setFontSize(8);
+    pdf.setTextColor(150, 150, 150);
+    pdf.text("Grupo Scout 2 Caballeros de Don Bosco · Cúcuta, Colombia · Siempre Mejor", pageW / 2, y, { align: "center" });
 
     const dateStr = executionDate ? format(executionDate, "yyyy-MM-dd") : "sin-fecha";
     pdf.save(`${branch.nombre}-encuentro-${encounter.id}-${dateStr}.pdf`);
@@ -184,73 +335,6 @@ export default function EncounterDetail() {
           ) : <div />}
         </div>
       </main>
-
-      {/* Hidden printable content for PDF */}
-      <div
-        ref={printRef}
-        style={{ display: "none", width: "800px", padding: "40px", fontFamily: "'Nunito', sans-serif", backgroundColor: "#fff", color: "#1a1a1a" }}
-      >
-        <div style={{ textAlign: "center", marginBottom: "24px", borderBottom: "3px solid #1a5632", paddingBottom: "16px" }}>
-          <h1 style={{ fontSize: "24px", fontWeight: "bold", margin: "0 0 4px 0", fontFamily: "'Fredoka', sans-serif" }}>
-            Escuela Scout — Grupo Scout 2 Caballeros de Don Bosco
-          </h1>
-          <p style={{ fontSize: "14px", color: "#666", margin: "0" }}>Cúcuta — Colombia</p>
-        </div>
-
-        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px", fontSize: "13px", color: "#555" }}>
-          <span><strong>Rama:</strong> {branch.nombre}</span>
-          <span><strong>Etapa {encounter.etapa}:</strong> {stageName}</span>
-          <span><strong>Duración:</strong> {totalMinutes} min</span>
-        </div>
-
-        <div style={{ background: "#f0f7f3", border: "1px solid #c8e0d0", borderRadius: "8px", padding: "16px", marginBottom: "16px" }}>
-          <h2 style={{ fontSize: "20px", fontWeight: "bold", margin: "0 0 8px 0", fontFamily: "'Fredoka', sans-serif" }}>
-            Encuentro #{encounter.id}: {encounter.titulo}
-          </h2>
-          <p style={{ fontSize: "13px", margin: "0 0 4px 0" }}><strong>Objetivo:</strong> {encounter.objetivo}</p>
-          <p style={{ fontSize: "13px", margin: "0 0 4px 0", fontStyle: "italic" }}>"{encounter.lema}"</p>
-          {executionDate && (
-            <p style={{ fontSize: "13px", margin: "8px 0 0 0", color: "#1a5632", fontWeight: "bold" }}>
-              📅 Fecha de ejecución: {format(executionDate, "EEEE d 'de' MMMM 'de' yyyy", { locale: es })}
-            </p>
-          )}
-        </div>
-
-        {encounter.actividades.map((act, i) => {
-          const typeLabels: Record<string, string> = {
-            ceremonia: "🏳️ Ceremonia", juego: "🎮 Juego", técnica: "📖 Técnica",
-            descanso: "☕ Descanso", actividad: "🔧 Actividad", reflexión: "❤️ Reflexión",
-          };
-          return (
-            <div key={i} style={{ border: "1px solid #ddd", borderRadius: "8px", padding: "12px", marginBottom: "12px", pageBreakInside: "avoid" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                <span style={{ fontSize: "11px", fontWeight: "bold", textTransform: "uppercase", color: "#888" }}>
-                  {typeLabels[act.tipo] || act.tipo} · {act.duracion} min
-                </span>
-              </div>
-              <h3 style={{ fontSize: "16px", fontWeight: "bold", margin: "0 0 6px 0", fontFamily: "'Fredoka', sans-serif" }}>{act.titulo}</h3>
-              <p style={{ fontSize: "13px", margin: "0 0 8px 0", color: "#444" }}>{act.descripcion}</p>
-              {act.materiales && act.materiales.length > 0 && (
-                <p style={{ fontSize: "12px", margin: "0 0 6px 0" }}>
-                  <strong>Materiales:</strong> {act.materiales.join(", ")}
-                </p>
-              )}
-              <div style={{ fontSize: "12px" }}>
-                <strong>Instrucciones:</strong>
-                <ol style={{ margin: "4px 0 0 20px", padding: 0 }}>
-                  {act.instrucciones.map((inst, j) => (
-                    <li key={j} style={{ marginBottom: "2px" }}>{inst}</li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-          );
-        })}
-
-        <div style={{ borderTop: "2px solid #1a5632", paddingTop: "12px", marginTop: "24px", textAlign: "center", fontSize: "11px", color: "#888" }}>
-          <p style={{ margin: 0 }}>Grupo Scout 2 Caballeros de Don Bosco · Cúcuta, Colombia · Siempre Mejor</p>
-        </div>
-      </div>
     </div>
   );
 }
