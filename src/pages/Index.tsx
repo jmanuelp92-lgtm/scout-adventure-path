@@ -68,6 +68,20 @@ export default function Index() {
               <p className="text-xs text-primary font-semibold mt-2">20 canciones · 7 categorías →</p>
             </div>
           </Link>
+          <Link
+            to="/tecnicas"
+            className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+          >
+            <div className="bg-gradient-to-br from-amber-700 to-yellow-500 p-6 text-white">
+              <span className="text-4xl mb-3 block">🪢</span>
+              <h3 className="font-display text-2xl font-bold">Nudos y Técnicas</h3>
+              <p className="text-sm opacity-80 mt-1">Guía práctica paso a paso</p>
+            </div>
+            <div className="bg-card p-4 border border-t-0 border-border rounded-b-xl">
+              <p className="text-sm text-muted-foreground">Nudos, señales de pista, primeros auxilios y campismo</p>
+              <p className="text-xs text-primary font-semibold mt-2">{techniques.length} técnicas · 4 categorías →</p>
+            </div>
+          </Link>
         </div>
       </main>
 
