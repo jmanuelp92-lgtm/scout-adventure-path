@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock, Target, Quote } from "lucide-react";
 import { getEncounterById, stages } from "@/data/encounters";
 import ActivityBlock from "@/components/ActivityBlock";
+import logoScout from "@/assets/logo-scout.png";
 
 const stageNames: Record<number, string> = {
   1: "Pata Tierna",
