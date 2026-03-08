@@ -84,6 +84,34 @@ export default function Index() {
               <p className="text-xs text-primary font-semibold mt-2">{techniques.length} técnicas · 4 categorías →</p>
             </div>
           </Link>
+          <Link
+            to="/juegos"
+            className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+          >
+            <div className="bg-gradient-to-br from-indigo-700 to-violet-500 p-6 text-white">
+              <span className="text-4xl mb-3 block">🎲</span>
+              <h3 className="font-display text-2xl font-bold">Juegos Scout</h3>
+              <p className="text-sm opacity-80 mt-1">Banco de juegos por rama y tipo</p>
+            </div>
+            <div className="bg-card p-4 border border-t-0 border-border rounded-b-xl">
+              <p className="text-sm text-muted-foreground">Interior, exterior, cooperación y estrategia</p>
+              <p className="text-xs text-primary font-semibold mt-2">{games.length} juegos · Filtros por rama →</p>
+            </div>
+          </Link>
+          <Link
+            to="/planificador"
+            className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+          >
+            <div className="bg-gradient-to-br from-teal-700 to-emerald-500 p-6 text-white">
+              <span className="text-4xl mb-3 block">📅</span>
+              <h3 className="font-display text-2xl font-bold">Planificador</h3>
+              <p className="text-sm opacity-80 mt-1">Organiza tus reuniones</p>
+            </div>
+            <div className="bg-card p-4 border border-t-0 border-border rounded-b-xl">
+              <p className="text-sm text-muted-foreground">Marca encuentros realizados y programa fechas</p>
+              <p className="text-xs text-primary font-semibold mt-2">4 ramas · Progreso guardado →</p>
+            </div>
+          </Link>
         </div>
       </main>
 
