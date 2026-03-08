@@ -2,12 +2,12 @@ import { Clock, Gamepad2, BookOpen, Coffee, Wrench, Heart, Flag } from "lucide-r
 import type { Activity } from "@/data/encounters";;
 
 const typeConfig: Record<Activity["tipo"], { icon: typeof Clock; label: string; className: string }> = {
-  ceremonia: { icon: Flag, label: "Ceremonia", className: "bg-primary/10 text-primary border-primary/20" },
-  juego: { icon: Gamepad2, label: "Juego", className: "bg-accent/20 text-accent-foreground border-accent/30" },
-  técnica: { icon: BookOpen, label: "Técnica", className: "bg-secondary/20 text-secondary border-secondary/30" },
-  descanso: { icon: Coffee, label: "Descanso", className: "bg-muted text-muted-foreground border-border" },
-  actividad: { icon: Wrench, label: "Actividad", className: "bg-primary/10 text-primary border-primary/20" },
-  reflexión: { icon: Heart, label: "Reflexión", className: "bg-destructive/10 text-destructive border-destructive/20" },
+  ceremonia: { icon: Flag, label: "Ceremonia", className: "bg-primary/10 border-primary/20 text-foreground" },
+  juego: { icon: Gamepad2, label: "Juego", className: "bg-accent/20 border-accent/30 text-foreground" },
+  técnica: { icon: BookOpen, label: "Técnica", className: "bg-secondary/20 border-secondary/30 text-foreground" },
+  descanso: { icon: Coffee, label: "Descanso", className: "bg-muted border-border text-foreground" },
+  actividad: { icon: Wrench, label: "Actividad", className: "bg-primary/10 border-primary/20 text-foreground" },
+  reflexión: { icon: Heart, label: "Reflexión", className: "bg-destructive/10 border-destructive/20 text-foreground" },
 };
 
 interface ActivityBlockProps {
