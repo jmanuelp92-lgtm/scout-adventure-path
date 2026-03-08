@@ -10,6 +10,7 @@ import Cancionero from "./pages/Cancionero";
 import Tecnicas from "./pages/Tecnicas";
 import Juegos from "./pages/Juegos";
 import Planificador from "./pages/Planificador";
+import ManualSalud from "./pages/ManualSalud";
 import NotFound from "./pages/NotFound";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 
