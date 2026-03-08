@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, BookOpen, CalendarDays } from "lucide-react";
 import { getBranchById } from "@/data/branches";
 import { getStagesByBranch, getEncountersByBranchAndStage } from "@/data/encounters-index";
+import { getBranchInfo } from "@/data/branch-info";
 import EncounterCard from "@/components/EncounterCard";
+import BranchInfoTab from "@/components/BranchInfoTab";
 import logoScout from "@/assets/logo-scout.png";
 
 export default function BranchView() {
   const { branchId } = useParams();
   const branch = getBranchById(branchId || "");
   const stages = getStagesByBranch(branchId || "");
+  const branchInfo = getBranchInfo(branchId || "");
   const [activeStage, setActiveStage] = useState(1);
+  const [activeTab, setActiveTab] = useState<"encuentros" | "info">("encuentros");
 
   if (!branch || stages.length === 0) {
     return (
@@ -42,39 +46,73 @@ export default function BranchView() {
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 py-6">
-        <div className="flex gap-2 overflow-x-auto pb-3 mb-4 scrollbar-hide">
-          {stages.map((stage) => (
-            <button
-              key={stage.numero}
-              onClick={() => setActiveStage(stage.numero)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-full font-display font-semibold text-sm whitespace-nowrap transition-all ${
-                activeStage === stage.numero
-                  ? `stage-badge-${stage.numero} shadow-md scale-105`
-                  : "bg-card border border-border text-foreground hover:bg-muted"
-              }`}
-            >
-              <span>{stage.icono}</span>
-              {stage.nombre}
-            </button>
-          ))}
+      {/* Tabs */}
+      <div className="max-w-3xl mx-auto px-4 pt-4">
+        <div className="flex bg-muted rounded-xl p-1 mb-4">
+          <button
+            onClick={() => setActiveTab("encuentros")}
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-display font-semibold text-sm transition-all ${
+              activeTab === "encuentros"
+                ? "bg-card text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <CalendarDays className="w-4 h-4" />
+            Encuentros
+          </button>
+          <button
+            onClick={() => setActiveTab("info")}
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-display font-semibold text-sm transition-all ${
+              activeTab === "info"
+                ? "bg-card text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <BookOpen className="w-4 h-4" />
+            Conoce tu Rama
+          </button>
         </div>
+      </div>
 
-        <div className="bg-card border border-border rounded-lg p-4 mb-6">
-          <h2 className="font-display font-bold text-lg mb-1">
-            Etapa {currentStage.numero}: {currentStage.nombre}
-          </h2>
-          <p className="text-sm text-muted-foreground">{currentStage.descripcion}</p>
-          <p className="text-xs text-muted-foreground mt-2">
-            Encuentros {currentStage.encuentros[0]} al {currentStage.encuentros[currentStage.encuentros.length - 1]}
-          </p>
-        </div>
+      <main className="max-w-3xl mx-auto px-4 pb-6">
+        {activeTab === "encuentros" ? (
+          <>
+            <div className="flex gap-2 overflow-x-auto pb-3 mb-4 scrollbar-hide">
+              {stages.map((stage) => (
+                <button
+                  key={stage.numero}
+                  onClick={() => setActiveStage(stage.numero)}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full font-display font-semibold text-sm whitespace-nowrap transition-all ${
+                    activeStage === stage.numero
+                      ? `stage-badge-${stage.numero} shadow-md scale-105`
+                      : "bg-card border border-border text-foreground hover:bg-muted"
+                  }`}
+                >
+                  <span>{stage.icono}</span>
+                  {stage.nombre}
+                </button>
+              ))}
+            </div>
 
-        <div className="space-y-3">
-          {stageEncounters.map((encounter) => (
-            <EncounterCard key={encounter.id} encounter={encounter} branchId={branchId!} />
-          ))}
-        </div>
+            <div className="bg-card border border-border rounded-lg p-4 mb-6">
+              <h2 className="font-display font-bold text-lg mb-1">
+                Etapa {currentStage.numero}: {currentStage.nombre}
+              </h2>
+              <p className="text-sm text-muted-foreground">{currentStage.descripcion}</p>
+              <p className="text-xs text-muted-foreground mt-2">
+                Encuentros {currentStage.encuentros[0]} al {currentStage.encuentros[currentStage.encuentros.length - 1]}
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              {stageEncounters.map((encounter) => (
+                <EncounterCard key={encounter.id} encounter={encounter} branchId={branchId!} />
+              ))}
+            </div>
+          </>
+        ) : (
+          branchInfo && <BranchInfoTab info={branchInfo} />
+        )}
       </main>
 
       <footer className="text-center py-6 text-sm text-muted-foreground border-t border-border mt-8">
