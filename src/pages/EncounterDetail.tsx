@@ -39,6 +39,7 @@ export default function EncounterDetail() {
           <Link to="/" className="p-2 rounded-lg hover:bg-muted transition-colors">
             <ArrowLeft className="w-5 h-5 text-foreground" />
           </Link>
+          <img src={logoScout} alt="Logo" className="w-8 h-8 rounded-full object-cover" />
           <div className="flex-1 min-w-0">
             <p className="text-xs text-muted-foreground font-medium">
               Etapa {encounter.etapa}: {stageNames[encounter.etapa]}

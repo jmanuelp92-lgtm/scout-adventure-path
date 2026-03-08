@@ -70,7 +70,9 @@ export default function Index() {
       </main>
 
       <footer className="text-center py-6 text-sm text-muted-foreground border-t border-border mt-8">
-        <p>🐺 Siempre Mejor · Escuela de Manada Scout</p>
+        <img src={logoScout} alt="Logo" className="w-10 h-10 mx-auto mb-2 rounded-full object-cover" />
+        <p className="font-display">Grupo Scout 2 Caballeros de Don Bosco</p>
+        <p className="text-xs opacity-60 mt-1">Cúcuta — Colombia · Siempre Mejor</p>
       </footer>
     </div>
   );
