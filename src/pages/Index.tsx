@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { branches } from "@/data/branches";
 import { techniques } from "@/data/techniques";
+import { games } from "@/data/games";
 import logoScout from "@/assets/logo-scout.png";
 
 const branchColors: Record<string, string> = {
