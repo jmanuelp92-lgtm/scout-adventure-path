@@ -53,15 +53,13 @@ export const branchInfoMap: Record<string, BranchInfo> = {
     ley: [
       "El Lobato escucha y obedece al Viejo Lobo.",
       "El Lobato se vence a sí mismo.",
-    ],
-    leyTitulo: "Ley de la Manada (2 artículos)",
-    maximas: [
       "El Lobato piensa primero en los demás.",
       "El Lobato tiene los ojos y los oídos bien abiertos.",
       "El Lobato es limpio y ordenado.",
       "El Lobato es alegre.",
       "El Lobato siempre dice la verdad.",
     ],
+    leyTitulo: "Ley y Máximas de la Manada",
     oracion:
       "Oh, dulce y buen Señor mío, enséñame a ser humilde y bondadoso, a imitar tu ejemplo, a amarte con todo mi corazón y a seguir el camino que me ha de llevar al cielo junto a Ti. Por San Francisco de Asís… ¡Rogad por los Lobatos!",
     oracionTitulo: "Oración del Lobato",
