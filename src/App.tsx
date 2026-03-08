@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import BranchView from "./pages/BranchView";
 import EncounterDetail from "./pages/EncounterDetail";
 import Cancionero from "./pages/Cancionero";
+import Tecnicas from "./pages/Tecnicas";
 import NotFound from "./pages/NotFound";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 
