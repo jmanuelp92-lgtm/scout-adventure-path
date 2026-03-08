@@ -50,6 +50,25 @@ export default function Index() {
             </Link>
           ))}
         </div>
+
+        {/* Tools Section */}
+        <h2 className="font-display text-xl font-bold mb-4 mt-8 text-center">Herramientas</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Link
+            to="/cancionero"
+            className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+          >
+            <div className="bg-gradient-to-br from-purple-700 to-pink-500 p-6 text-white">
+              <span className="text-4xl mb-3 block">🎵</span>
+              <h3 className="font-display text-2xl font-bold">Cancionero</h3>
+              <p className="text-sm opacity-80 mt-1">Canciones para cada momento</p>
+            </div>
+            <div className="bg-card p-4 border border-t-0 border-border rounded-b-xl">
+              <p className="text-sm text-muted-foreground">Apertura, fogata, marcha, despedida y más</p>
+              <p className="text-xs text-primary font-semibold mt-2">20 canciones · 7 categorías →</p>
+            </div>
+          </Link>
+        </div>
       </main>
 
       <footer className="text-center py-6 text-sm text-muted-foreground border-t border-border mt-8">

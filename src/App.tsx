@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import BranchView from "./pages/BranchView";
 import EncounterDetail from "./pages/EncounterDetail";
+import Cancionero from "./pages/Cancionero";
 import NotFound from "./pages/NotFound";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/cancionero" element={<Cancionero />} />
           <Route path="/:branchId" element={<BranchView />} />
           <Route path="/:branchId/encuentro/:id" element={<EncounterDetail />} />
           <Route path="*" element={<NotFound />} />
