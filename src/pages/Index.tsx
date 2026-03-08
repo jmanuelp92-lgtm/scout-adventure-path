@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { stages, getEncountersByStage } from "@/data/encounters";
 import EncounterCard from "@/components/EncounterCard";
+import logoScout from "@/assets/logo-scout.png";
 
 const stageEmojis = ["🐾", "🦊", "🏕️", "🦅", "🐺"];
 
@@ -12,16 +13,18 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <header className="bg-primary text-primary-foreground py-10 px-4">
+      <header className="bg-primary text-primary-foreground py-8 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-2">
-            🐺 Escuela de Manada
+          <img src={logoScout} alt="Logo 2 Caballeros de Don Bosco" className="w-24 h-24 mx-auto mb-3 rounded-full object-cover bg-white shadow-lg" />
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-1">
+            Escuela de Manada
           </h1>
-          <p className="text-lg opacity-90 font-body">
-            50 encuentros progresivos para formar grandes lobatos
+          <p className="font-display text-base opacity-90">
+            Grupo Scout 2 Caballeros de Don Bosco
           </p>
-          <p className="text-sm mt-2 opacity-70">
-            3 horas por encuentro · 5 etapas · Juegos, técnica y aventura
+          <p className="text-sm opacity-70">Cúcuta — Colombia</p>
+          <p className="text-xs mt-2 opacity-60">
+            50 encuentros · 5 etapas · 3 horas cada uno
           </p>
         </div>
       </header>
