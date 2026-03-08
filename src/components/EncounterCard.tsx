@@ -4,6 +4,7 @@ import type { Encounter } from "@/data/encounters";
 
 interface EncounterCardProps {
   encounter: Encounter;
+  branchId: string;
 }
 
 const stageColors: Record<number, string> = {
@@ -22,12 +23,12 @@ const stageBorders: Record<number, string> = {
   5: "border-l-stage-5",
 };
 
-export default function EncounterCard({ encounter }: EncounterCardProps) {
+export default function EncounterCard({ encounter, branchId }: EncounterCardProps) {
   const totalMinutes = encounter.actividades.reduce((sum, a) => sum + a.duracion, 0);
 
   return (
     <Link
-      to={`/encuentro/${encounter.id}`}
+      to={`/${branchId}/encuentro/${encounter.id}`}
       className={`block bg-card rounded-lg border-l-4 ${stageBorders[encounter.etapa]} shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 p-4`}
     >
       <div className="flex items-start justify-between gap-3">

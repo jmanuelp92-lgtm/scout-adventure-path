@@ -1,5 +1,5 @@
 import { Clock, Gamepad2, BookOpen, Coffee, Wrench, Heart, Flag } from "lucide-react";
-import type { Activity } from "@/data/encounters";
+import type { Activity } from "@/data/encounters";;
 
 const typeConfig: Record<Activity["tipo"], { icon: typeof Clock; label: string; className: string }> = {
   ceremonia: { icon: Flag, label: "Ceremonia", className: "bg-primary/10 text-primary border-primary/20" },

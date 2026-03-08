@@ -1,70 +1,53 @@
 import { useState } from "react";
-import { stages, getEncountersByStage } from "@/data/encounters";
-import EncounterCard from "@/components/EncounterCard";
+import { Link } from "react-router-dom";
+import { branches } from "@/data/branches";
 import logoScout from "@/assets/logo-scout.png";
 
-const stageEmojis = ["🐾", "🦊", "🏕️", "🦅", "🐺"];
+const branchColors: Record<string, string> = {
+  manada: "from-amber-600 to-yellow-500",
+  tropa: "from-emerald-700 to-green-500",
+  comunidad: "from-blue-700 to-cyan-500",
+  clan: "from-red-700 to-orange-500",
+};
 
 export default function Index() {
-  const [activeStage, setActiveStage] = useState(1);
-  const stageEncounters = getEncountersByStage(activeStage);
-  const currentStage = stages.find(s => s.numero === activeStage)!;
-
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <header className="bg-primary text-primary-foreground py-8 px-4">
+      <header className="bg-primary text-primary-foreground py-10 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <img src={logoScout} alt="Logo 2 Caballeros de Don Bosco" className="w-24 h-24 mx-auto mb-3 rounded-full object-cover bg-white shadow-lg" />
+          <img src={logoScout} alt="Logo Grupo Scout 2 Caballeros de Don Bosco" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover bg-white shadow-lg" />
           <h1 className="font-display text-3xl md:text-4xl font-bold mb-1">
-            Escuela de Manada
+            Escuela Scout
           </h1>
-          <p className="font-display text-base opacity-90">
+          <p className="font-display text-lg opacity-90">
             Grupo Scout 2 Caballeros de Don Bosco
           </p>
           <p className="text-sm opacity-70">Cúcuta — Colombia</p>
           <p className="text-xs mt-2 opacity-60">
-            50 encuentros · 5 etapas · 3 horas cada uno
+            200 encuentros · 4 ramas · 3 horas cada uno
           </p>
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 py-6">
-        {/* Stage selector */}
-        <div className="flex gap-2 overflow-x-auto pb-3 mb-4 scrollbar-hide">
-          {stages.map((stage) => (
-            <button
-              key={stage.numero}
-              onClick={() => setActiveStage(stage.numero)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-full font-display font-semibold text-sm whitespace-nowrap transition-all ${
-                activeStage === stage.numero
-                  ? `stage-badge-${stage.numero} shadow-md scale-105`
-                  : "bg-card border border-border text-foreground hover:bg-muted"
-              }`}
+      <main className="max-w-3xl mx-auto px-4 py-8">
+        <h2 className="font-display text-xl font-bold mb-4 text-center">Elige tu rama</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {branches.map((branch) => (
+            <Link
+              key={branch.id}
+              to={`/${branch.id}`}
+              className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
             >
-              <span>{stageEmojis[stage.numero - 1]}</span>
-              {stage.nombre}
-            </button>
-          ))}
-        </div>
-
-        {/* Stage description */}
-        <div className="bg-card border border-border rounded-lg p-4 mb-6">
-          <h2 className="font-display font-bold text-lg mb-1">
-            Etapa {currentStage.numero}: {currentStage.nombre}
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {currentStage.descripcion}
-          </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            Encuentros {currentStage.encuentros[0]} al {currentStage.encuentros[currentStage.encuentros.length - 1]}
-          </p>
-        </div>
-
-        {/* Encounter list */}
-        <div className="space-y-3">
-          {stageEncounters.map((encounter) => (
-            <EncounterCard key={encounter.id} encounter={encounter} />
+              <div className={`bg-gradient-to-br ${branchColors[branch.id]} p-6 text-white`}>
+                <span className="text-4xl mb-3 block">{branch.icono}</span>
+                <h3 className="font-display text-2xl font-bold">{branch.nombre}</h3>
+                <p className="text-sm opacity-80 mt-1">{branch.edades}</p>
+              </div>
+              <div className="bg-card p-4 border border-t-0 border-border rounded-b-xl">
+                <p className="text-sm text-muted-foreground">{branch.descripcion}</p>
+                <p className="text-xs text-primary font-semibold mt-2">50 encuentros · 5 etapas →</p>
+              </div>
+            </Link>
           ))}
         </div>
       </main>
