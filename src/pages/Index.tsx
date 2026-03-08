@@ -126,6 +126,20 @@ export default function Index() {
               <p className="text-xs text-primary font-semibold mt-2">Guía paso a paso · Emergencias →</p>
             </div>
           </Link>
+          <Link
+            to="/checklist"
+            className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+          >
+            <div className="bg-gradient-to-br from-orange-700 to-amber-500 p-6 text-white">
+              <span className="text-4xl mb-3 block">✅</span>
+              <h3 className="font-display text-2xl font-bold">Checklist Scout</h3>
+              <p className="text-sm opacity-80 mt-1">No olvides nada</p>
+            </div>
+            <div className="bg-card p-4 border border-t-0 border-border rounded-b-xl">
+              <p className="text-sm text-muted-foreground">Listas para campamento, reunión y salidas</p>
+              <p className="text-xs text-primary font-semibold mt-2">3 plantillas · Personalizable →</p>
+            </div>
+          </Link>
         </div>
       </main>
 

@@ -11,6 +11,7 @@ import Tecnicas from "./pages/Tecnicas";
 import Juegos from "./pages/Juegos";
 import Planificador from "./pages/Planificador";
 import ManualSalud from "./pages/ManualSalud";
+import Checklist from "./pages/Checklist";
 import NotFound from "./pages/NotFound";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/juegos" element={<Juegos />} />
           <Route path="/planificador" element={<Planificador />} />
           <Route path="/manual-salud" element={<ManualSalud />} />
+          <Route path="/checklist" element={<Checklist />} />
           <Route path="/:branchId" element={<BranchView />} />
           <Route path="/:branchId/encuentro/:id" element={<EncounterDetail />} />
           <Route path="*" element={<NotFound />} />
