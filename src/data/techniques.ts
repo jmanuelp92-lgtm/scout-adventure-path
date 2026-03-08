@@ -21,6 +21,7 @@ export const techCategories: TechCategory[] = [
   { id: "nudos", nombre: "Nudos", icono: "🪢", color: "from-amber-700 to-yellow-500" },
   { id: "senales", nombre: "Señales de Pista", icono: "🧭", color: "from-emerald-700 to-green-500" },
   { id: "primeros-auxilios", nombre: "Primeros Auxilios", icono: "🏥", color: "from-red-700 to-rose-500" },
+  { id: "manual-salud", nombre: "Manual de Salud", icono: "💊", color: "from-pink-700 to-fuchsia-500" },
   { id: "campismo", nombre: "Campismo", icono: "⛺", color: "from-blue-700 to-cyan-500" },
 ];
 
