@@ -307,4 +307,575 @@ export const games: Game[] = [
     ],
     icono: "🏕️"
   },
+  // ===== JUEGOS DE MANADA (Libro de la Selva) =====
+  {
+    id: "kaa-y-bandar-log",
+    nombre: "Kaa y los Bandar-log",
+    tipo: "ambos",
+    ramas: ["manada"],
+    participantes: { min: 8, max: 25 },
+    materiales: ["Pañoleta para vendar ojos"],
+    duracion: 15,
+    descripcion: "Los traviesos monos Bandar-log deben pasar junto a Kaa, la serpiente hipnotizadora, sin hacer ruido.",
+    instrucciones: [
+      "Un lobato hace de Kaa, sentado en el centro con los ojos vendados.",
+      "Alrededor se colocan objetos (las 'piedras') que los monos deben robar.",
+      "Los Bandar-log se acercan en silencio para tomar un objeto.",
+      "Si Kaa escucha, señala con el brazo: el mono señalado queda hipnotizado y se sienta.",
+      "Gana el mono que más objetos logre robar sin ser detectado."
+    ],
+    icono: "🐍"
+  },
+  {
+    id: "cacería-de-mowgli",
+    nombre: "La Cacería de Mowgli",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 10, max: 30 },
+    materiales: ["Pistas de papel", "Premios pequeños"],
+    duracion: 40,
+    descripcion: "Mowgli se ha perdido en la selva. Las seisenas siguen pistas para encontrarlo.",
+    instrucciones: [
+      "Esconde pistas escritas por el terreno (huellas, hojas marcadas, dibujos).",
+      "Cada pista lleva a la siguiente con un acertijo o señal scout.",
+      "Las seisenas trabajan juntas siguiendo el rastro.",
+      "La última pista lleva a un 'tesoro' o a Mowgli (un dirigente disfrazado).",
+      "Termina con un Gran Aullido celebrando el rescate."
+    ],
+    variantes: ["Usar señales de pista reales (flechas, círculos)", "Incluir pruebas en cada estación"],
+    icono: "🐾"
+  },
+  {
+    id: "akela-dice",
+    nombre: "Akela Dice",
+    tipo: "ambos",
+    ramas: ["manada"],
+    participantes: { min: 6, max: 30 },
+    materiales: ["Ninguno"],
+    duracion: 10,
+    descripcion: "Versión scout de 'Simón dice'. Solo se obedece cuando Akela lo ordena.",
+    instrucciones: [
+      "Un dirigente hace de Akela y da órdenes: 'Akela dice salten', 'corran', 'aúllen'.",
+      "Los lobatos solo deben obedecer si la frase empieza con 'Akela dice'.",
+      "Quien obedece sin la fórmula queda fuera (o pierde una vida).",
+      "Se acelera el ritmo para hacerlo más divertido.",
+      "Gana el último lobato en pie."
+    ],
+    icono: "🐺"
+  },
+  {
+    id: "carrera-de-las-estaciones",
+    nombre: "Carrera de las Cuatro Patas",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 8, max: 24 },
+    materiales: ["Conos o marcas"],
+    duracion: 15,
+    descripcion: "Relevos imitando animales de la selva: pantera, oso, lobo y mono.",
+    instrucciones: [
+      "Marca una pista de ida y vuelta de 15 metros.",
+      "Cada lobato del equipo hace el recorrido imitando un animal: Bagheera (gateando ágil), Baloo (caminando pesado), Akela (corriendo a 4 patas), Bandar-log (saltando).",
+      "Al regresar, choca la mano y sale el siguiente.",
+      "Gana la seisena que termine primero con buena imitación."
+    ],
+    icono: "🐾"
+  },
+  {
+    id: "gran-aullido-juego",
+    nombre: "El Gran Aullido",
+    tipo: "ambos",
+    ramas: ["manada"],
+    participantes: { min: 6, max: 40 },
+    materiales: ["Ninguno"],
+    duracion: 5,
+    descripcion: "Ceremonia-juego de apertura/cierre donde la manada aúlla en círculo alrededor de Akela.",
+    instrucciones: [
+      "Akela grita: '¡Manada, manada, manada!'",
+      "Los lobatos corren y forman círculo alrededor de Akela en posición de firmes.",
+      "A la señal, se ponen en cuclillas con los dedos como orejas y aúllan: '¡Haremos lo mejor!'",
+      "Se ponen de pie y hacen el saludo del lobato.",
+      "Sirve para abrir y cerrar todas las reuniones."
+    ],
+    icono: "🌕"
+  },
+  {
+    id: "la-roca-del-consejo",
+    nombre: "La Roca del Consejo",
+    tipo: "ambos",
+    ramas: ["manada"],
+    participantes: { min: 6, max: 30 },
+    materiales: ["Una piedra grande o cojín como 'roca'"],
+    duracion: 15,
+    descripcion: "Asamblea simbólica donde la manada habla, reflexiona o decide algo importante.",
+    instrucciones: [
+      "Se forma un círculo alrededor de la Roca del Consejo.",
+      "Akela explica el tema (un problema, una decisión, una reflexión).",
+      "Quien tiene la palabra sostiene una rama o pluma; los demás escuchan.",
+      "Cada lobato puede aportar su idea.",
+      "Akela cierra con una conclusión y se hace el Gran Aullido."
+    ],
+    icono: "🪨"
+  },
+  {
+    id: "shere-khan",
+    nombre: "Cuidado con Shere Khan",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 10, max: 30 },
+    materiales: ["Pañoleta naranja"],
+    duracion: 20,
+    descripcion: "Persecución temática: Shere Khan, el tigre, intenta cazar a los lobatos en la selva.",
+    instrucciones: [
+      "Un dirigente o lobato mayor hace de Shere Khan con pañoleta naranja.",
+      "Los lobatos son la manada y deben moverse de un refugio a otro al silbatazo.",
+      "Shere Khan persigue durante el desplazamiento.",
+      "Tocado = queda dormido. Otro lobato puede despertarlo con un toque y diciendo 'buena caza'.",
+      "Cambian roles cada 5 minutos."
+    ],
+    icono: "🐯"
+  },
+  {
+    id: "mimica-jungla",
+    nombre: "Mímica de la Selva",
+    tipo: "interior",
+    ramas: ["manada"],
+    participantes: { min: 6, max: 20 },
+    materiales: ["Tarjetas con nombres de animales"],
+    duracion: 15,
+    descripcion: "Los lobatos imitan animales de la selva y los demás adivinan.",
+    instrucciones: [
+      "Prepara tarjetas con animales (elefante, mono, serpiente, oso, pantera, búho, etc.).",
+      "Por turnos, un lobato saca una tarjeta y la imita SIN hablar.",
+      "Los demás adivinan; quien acierta primero pasa al frente.",
+      "Variante por seisenas: equipo que adivina gana punto."
+    ],
+    icono: "🎭"
+  },
+  {
+    id: "kim-sonidos",
+    nombre: "Kim de Sonidos",
+    tipo: "interior",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 4, max: 20 },
+    materiales: ["10 objetos que produzcan sonidos", "Pañoleta para vendar ojos"],
+    duracion: 15,
+    descripcion: "Versión auditiva del juego de Kim: identificar sonidos con los ojos cerrados.",
+    instrucciones: [
+      "Los lobatos se sientan en círculo con los ojos vendados.",
+      "El dirigente produce 8-10 sonidos distintos (papel arrugado, llaves, agua, silbido, etc.).",
+      "Al final, cada lobato escribe o dice qué sonidos reconoció.",
+      "Gana quien más acierte."
+    ],
+    icono: "👂"
+  },
+  {
+    id: "telarana-de-amistad",
+    nombre: "Telaraña de la Manada",
+    tipo: "ambos",
+    ramas: ["manada"],
+    participantes: { min: 6, max: 20 },
+    materiales: ["Una bola de lana"],
+    duracion: 15,
+    descripcion: "Juego de presentación y unión donde la manada teje una telaraña simbólica.",
+    instrucciones: [
+      "Forma un círculo sentados en el piso.",
+      "El primer lobato toma la punta de la lana, dice su nombre y algo que le guste de la manada.",
+      "Lanza la bola a otro lobato sin soltar la punta.",
+      "Se repite hasta que todos hablaron y se forma una telaraña.",
+      "Reflexión: 'Si uno suelta, la red se rompe. Así es la manada.'"
+    ],
+    icono: "🕸️"
+  },
+  {
+    id: "carrera-de-seisenas",
+    nombre: "Carrera de Seisenas",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 12, max: 30 },
+    materiales: ["Pañoletas de colores por seisena", "Pruebas preparadas"],
+    duracion: 40,
+    descripcion: "Postas lúdicas donde cada seisena demuestra trabajo en equipo y aprende técnicas básicas.",
+    instrucciones: [
+      "Prepara 5 postas: nudo rizo, señales de pista, primeros auxilios básicos, cantar canción con gestos, lanzar al blanco.",
+      "Cada seisena recorre las postas con su seisenero como guía.",
+      "Un dirigente puntúa esfuerzo y trabajo en equipo (no solo velocidad).",
+      "Cierre con Gran Aullido y entrega de puntos a todas las seisenas."
+    ],
+    icono: "🏁"
+  },
+  {
+    id: "veneno",
+    nombre: "El Veneno",
+    tipo: "ambos",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 8, max: 25 },
+    materiales: ["Una pelota pequeña"],
+    duracion: 10,
+    descripcion: "Juego de círculo rápido para soltar tensión: la pelota es 'veneno' que no puede tocarte.",
+    instrucciones: [
+      "Todos en círculo con las piernas abiertas, pies tocando los del vecino.",
+      "Con las manos golpean la pelota intentando que pase entre las piernas de otro.",
+      "Si la pelota pasa entre tus piernas, pierdes una vida (o un brazo).",
+      "Con 3 vidas perdidas, sales del círculo.",
+      "Gana el último."
+    ],
+    icono: "☠️"
+  },
+  {
+    id: "el-cartero",
+    nombre: "El Cartero",
+    tipo: "interior",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 8, max: 25 },
+    materiales: ["Sillas (una menos que participantes)"],
+    duracion: 15,
+    descripcion: "Juego de sillas con consignas creativas. Ideal para conocerse y reírse.",
+    instrucciones: [
+      "Todos sentados en círculo, una persona de pie en el centro (el cartero).",
+      "El cartero dice: 'Traigo carta para todos los que... (tienen tenis blancos / les gusta el chocolate / nacieron en marzo)'.",
+      "Los aludidos se levantan y cambian de silla; el cartero busca silla también.",
+      "Quien queda sin silla es el nuevo cartero."
+    ],
+    icono: "✉️"
+  },
+  {
+    id: "rey-manda",
+    nombre: "El Rey Manda",
+    tipo: "ambos",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 8, max: 30 },
+    materiales: ["Objetos diversos en el lugar"],
+    duracion: 20,
+    descripcion: "Las seisenas/patrullas compiten trayendo objetos solicitados por 'el rey' lo más rápido posible.",
+    instrucciones: [
+      "Equipos sentados frente al rey (dirigente).",
+      "El rey pide un objeto: 'El rey manda... una hoja seca / un cordón / algo amarillo'.",
+      "El primer equipo en entregarlo gana 1 punto.",
+      "Variar dificultad: objetos imposibles ganan más puntos (creatividad).",
+      "Termina cuando se llega a un puntaje o tiempo límite."
+    ],
+    icono: "👑"
+  },
+  {
+    id: "rastreo-pista",
+    nombre: "Sigue la Pista",
+    tipo: "exterior",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 6, max: 25 },
+    materiales: ["Tiza, piedras, palos para señales de pista"],
+    duracion: 30,
+    descripcion: "Recorrido donde los scouts siguen señales de pista (flechas, círculos, X) hasta llegar a un destino.",
+    instrucciones: [
+      "Un dirigente sale 15 minutos antes y deja señales de pista por el camino.",
+      "Las señales usan piedras, palos o tiza (flecha=por aquí; círculo con punto=fin; X=no por aquí).",
+      "El grupo sigue las señales en orden, sin saltarse ninguna.",
+      "Al final hay un mensaje, premio o desafío.",
+      "Repasar las señales antes y después del juego."
+    ],
+    icono: "➡️"
+  },
+  {
+    id: "tierra-aire-mar",
+    nombre: "Tierra, Aire, Mar",
+    tipo: "ambos",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 6, max: 25 },
+    materiales: ["Una pelota suave"],
+    duracion: 10,
+    descripcion: "Juego rápido para repasar animales y reflejos. Hay que decir un animal del medio mencionado.",
+    instrucciones: [
+      "Todos en círculo. Una persona en el centro con la pelota.",
+      "Lanza la pelota a alguien diciendo 'tierra', 'aire' o 'mar' y cuenta hasta 5.",
+      "Quien recibe debe decir un animal de ese medio antes del 5.",
+      "Si falla o repite, pasa al centro.",
+      "Si dice 'mundo', todos cambian de lugar."
+    ],
+    icono: "🌍"
+  },
+  {
+    id: "noche-y-dia",
+    nombre: "Noche y Día",
+    tipo: "exterior",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 10, max: 30 },
+    materiales: ["Línea central marcada"],
+    duracion: 15,
+    descripcion: "Dos equipos enfrentados: cuando se dice su palabra, persiguen al otro hasta la línea de fondo.",
+    instrucciones: [
+      "Divide en dos equipos: 'Noche' y 'Día', uno frente al otro a 2 metros.",
+      "Detrás de cada equipo, a 15 metros, hay una línea de refugio.",
+      "El dirigente grita 'NOCHE' o 'DÍA' (alargando la N o la D).",
+      "El equipo nombrado persigue al otro hasta su línea.",
+      "Cada tocado pasa al equipo contrario. Sigue el juego hasta agotar tiempo."
+    ],
+    icono: "🌗"
+  },
+  // ===== JUEGOS CLÁSICOS ASC / MSC / WOSM PARA MANADA =====
+  {
+    id: "colas-de-zorro",
+    nombre: "Colas de Zorro",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 8, max: 30 },
+    materiales: ["Tira de tela (~40 cm) por lobato"],
+    duracion: 15,
+    descripcion: "Clásico de Manada: cada lobato lleva su 'cola' colgando y debe atrapar las de los demás sin perder la suya.",
+    instrucciones: [
+      "Cada lobato mete una tira de tela en su pantalón, dejando colgar la mayoría como cola.",
+      "Al silbatazo, todos persiguen a todos intentando arrebatar colas.",
+      "Quien pierde su cola sigue jugando pero no puede recuperarla.",
+      "Gana el lobato que tenga más colas al final del tiempo (5-7 min)."
+    ],
+    icono: "🦊"
+  },
+  {
+    id: "lobo-hambriento",
+    nombre: "Lobo Hambriento",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 10, max: 30 },
+    materiales: ["Líneas marcadas para las orillas"],
+    duracion: 15,
+    descripcion: "Un lobo solo al centro debe atrapar a las ovejas que cruzan el campo. Cada tocado se convierte en lobo.",
+    instrucciones: [
+      "Marca dos líneas paralelas (orillas) a 15 m de distancia.",
+      "Un lobato hace de lobo en el centro; los demás son ovejas en una orilla.",
+      "El lobo grita '¡Lobo hambriento!' y las ovejas deben cruzar a la otra orilla.",
+      "El lobo intenta tocar ovejas; las tocadas se vuelven lobos y ayudan en la siguiente ronda.",
+      "Gana la última oveja en quedar libre."
+    ],
+    icono: "🐺"
+  },
+  {
+    id: "conejo-y-zorro",
+    nombre: "Conejo y Zorro",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 10, max: 30 },
+    materiales: ["Ninguno"],
+    duracion: 15,
+    descripcion: "Persecución dinámica: el conejo se salva abrazando a otro lobato, y ese pasa a ser el nuevo conejo.",
+    instrucciones: [
+      "Los lobatos se ubican en parejas dispersas por el campo.",
+      "Se elige un zorro (perseguidor) y un conejo (presa).",
+      "El conejo huye; cuando se cansa, se abraza a una pareja y el del lado opuesto se vuelve el nuevo conejo.",
+      "Si el zorro toca al conejo, intercambian roles.",
+      "Juego continuo por 10 minutos."
+    ],
+    icono: "🐰"
+  },
+  {
+    id: "guarida-del-oso",
+    nombre: "Guarida del Oso",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 12, max: 30 },
+    materiales: ["1 pelota o tótem por seisena", "Tiza o cuerda para delimitar"],
+    duracion: 25,
+    descripcion: "Cada seisena protege su guarida con un tesoro. Las demás intentan robarlo sin ser tocadas.",
+    instrucciones: [
+      "Cada seisena delimita su guarida (4x4 m) y coloca su tesoro al centro.",
+      "Un guardia se queda DENTRO de la guarida; el resto sale a robar a otras seisenas.",
+      "Si el guardia toca a un ladrón dentro de su zona, el ladrón queda 'congelado' hasta el final del turno.",
+      "Cada 3 min cambia el guardia.",
+      "Gana la seisena con más tesoros robados (o que conserve el suyo)."
+    ],
+    icono: "🐻"
+  },
+  {
+    id: "kim-olfativo",
+    nombre: "Kim Olfativo",
+    tipo: "interior",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 4, max: 20 },
+    materiales: ["8-10 frascos opacos con sustancias aromáticas (café, canela, limón, hierbabuena, etc.)", "Vendas"],
+    duracion: 15,
+    descripcion: "Identificar olores con los ojos vendados. Desarrolla el sentido del olfato y la memoria sensorial.",
+    instrucciones: [
+      "Prepara frascos numerados con sustancias de olor fuerte (sin verlas).",
+      "Los lobatos pasan en grupos de 4 con los ojos vendados.",
+      "Huelen cada frasco y dicen al dirigente qué creen que es; el dirigente anota.",
+      "Al final se revelan las sustancias.",
+      "Gana quien identifique más correctamente."
+    ],
+    icono: "👃"
+  },
+  {
+    id: "kim-tactil",
+    nombre: "El Saco Misterioso (Kim Táctil)",
+    tipo: "interior",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 4, max: 20 },
+    materiales: ["Bolsa opaca de tela", "8-10 objetos de formas variadas"],
+    duracion: 10,
+    descripcion: "Identificar objetos sólo con el tacto, sin mirar dentro del saco.",
+    instrucciones: [
+      "El dirigente mete 8-10 objetos pequeños en una bolsa de tela.",
+      "Por turnos, cada lobato mete la mano (sin mirar) durante 20 segundos.",
+      "Después escribe o dice cuántos objetos hay y de qué tipo.",
+      "Gana quien acierte más objetos."
+    ],
+    icono: "✋"
+  },
+  {
+    id: "huellas-falsas",
+    nombre: "Huellas Falsas",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 8, max: 25 },
+    materiales: ["Tiza", "Señales de pista impresas o dibujadas"],
+    duracion: 25,
+    descripcion: "Las seisenas siguen una pista, pero hay un camino verdadero y uno falso. Deben usar bien las señales scout.",
+    instrucciones: [
+      "Antes del juego, el dirigente traza dos rutas con señales de pista: una real y una falsa con marca de 'camino equivocado'.",
+      "Repasa con la Manada el significado de las señales.",
+      "Las seisenas siguen la pista buscando la ruta correcta.",
+      "Al final hay un mensaje o pequeño tesoro.",
+      "Gana la primera seisena en llegar correctamente."
+    ],
+    icono: "👣"
+  },
+  {
+    id: "quien-soy-personajes",
+    nombre: "¿Quién Soy? — Personajes de la Selva",
+    tipo: "ambos",
+    ramas: ["manada"],
+    participantes: { min: 6, max: 25 },
+    materiales: ["Tarjetas con nombres de personajes", "Cinta adhesiva"],
+    duracion: 15,
+    descripcion: "A cada lobato se le pega en la espalda un personaje del Libro de la Selva; debe adivinar quién es preguntando.",
+    instrucciones: [
+      "Prepara tarjetas con personajes: Mowgli, Bagheera, Baloo, Akela, Kaa, Shere Khan, Rikki-tikki-tavi, Raksha, Hathi, Bandar-log...",
+      "Pega una tarjeta en la espalda de cada lobato sin que la vea.",
+      "Los lobatos se mueven y hacen preguntas de sí/no a otros: '¿Soy un animal grande?', '¿Soy amigo de Mowgli?'.",
+      "Quien adivina su personaje pasa al centro y ayuda a los demás.",
+      "Gana el primero en descubrirlo."
+    ],
+    icono: "❓"
+  },
+  {
+    id: "el-espejo-selva",
+    nombre: "El Espejo de la Selva",
+    tipo: "ambos",
+    ramas: ["manada"],
+    participantes: { min: 6, max: 20 },
+    materiales: ["Ninguno"],
+    duracion: 10,
+    descripcion: "Juego de expresión corporal por parejas: uno imita lentamente al otro como un espejo viviente.",
+    instrucciones: [
+      "Forma parejas, una persona frente a otra a un brazo de distancia.",
+      "Uno hace movimientos lentos imitando un animal de la selva.",
+      "El otro debe imitarlo como un espejo, en tiempo real.",
+      "A los 2 min, cambian roles.",
+      "Variante: una seisena entera siendo espejo de otra."
+    ],
+    icono: "🪞"
+  },
+  {
+    id: "torre-de-papel",
+    nombre: "Torre de Papel",
+    tipo: "interior",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 6, max: 24 },
+    materiales: ["20 hojas de papel y 1 cinta adhesiva por seisena", "Tijeras"],
+    duracion: 25,
+    descripcion: "Cada seisena construye la torre de papel más alta y estable posible en 15 minutos.",
+    instrucciones: [
+      "Cada seisena recibe los mismos materiales: 20 hojas, cinta, tijeras.",
+      "Tiempo límite: 15 minutos para construir.",
+      "La torre debe sostenerse sola al menos 10 segundos.",
+      "Se mide altura al final; gana la más alta que se mantenga en pie.",
+      "Reflexión: ¿cómo se organizó la seisena? ¿quién aportó qué?"
+    ],
+    icono: "🗼"
+  },
+  {
+    id: "lazarillo-selva",
+    nombre: "El Lazarillo de la Selva",
+    tipo: "ambos",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 8, max: 20 },
+    materiales: ["Vendas (1 por pareja)", "Obstáculos suaves (conos, cojines)"],
+    duracion: 20,
+    descripcion: "Juego de confianza: un lobato vendado es guiado por su pareja a través de un circuito sólo con la voz.",
+    instrucciones: [
+      "Forma parejas; uno se venda los ojos.",
+      "Prepara un circuito sencillo con obstáculos (zig-zag, gateo, equilibrio).",
+      "El que ve guía a su pareja SOLO con la voz, sin tocarla.",
+      "Al terminar, intercambian roles.",
+      "Reflexión: ¿qué se siente confiar? ¿qué hace falta para guiar bien?"
+    ],
+    icono: "🤲"
+  },
+  {
+    id: "nudo-de-selva",
+    nombre: "Nudo de Selva (Competencia de Nudos)",
+    tipo: "ambos",
+    ramas: ["manada", "tropa"],
+    participantes: { min: 6, max: 24 },
+    materiales: ["1 cuerda de 1 m por lobato"],
+    duracion: 20,
+    descripcion: "Las seisenas compiten haciendo los nudos básicos: rizo, vuelta de escota y ballestrinque.",
+    instrucciones: [
+      "Repasa los 3 nudos básicos antes de empezar.",
+      "Cada seisena se forma en fila; el dirigente grita un nudo.",
+      "Todos lo hacen lo más rápido y bien posible.",
+      "El dirigente revisa: nudo bien hecho = 1 punto para la seisena.",
+      "Gana la seisena con más puntos tras 5-6 rondas."
+    ],
+    icono: "🪢"
+  },
+  {
+    id: "noche-de-selva",
+    nombre: "Noche de la Selva",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 8, max: 25 },
+    materiales: ["Linternas (1 por dirigente)", "Espacio con poca luz"],
+    duracion: 20,
+    descripcion: "Actividad en penumbra donde los lobatos se orientan por sonidos de personajes de la selva.",
+    instrucciones: [
+      "Reduce la luz del lugar (atardecer o sala oscurecida).",
+      "Cuatro dirigentes se esconden en distintos puntos, cada uno emite un sonido: silbido de Kaa, gruñido de Bagheera, aullido de Akela, rugido de Shere Khan.",
+      "Los lobatos en seisenas deben llegar a cada personaje siguiendo sólo el sonido.",
+      "Cada seisena va con un dirigente o lobato mayor por seguridad.",
+      "Cierre alrededor de una fogata o luz central."
+    ],
+    icono: "🌙"
+  },
+  {
+    id: "flor-roja",
+    nombre: "La Flor Roja",
+    tipo: "ambos",
+    ramas: ["manada"],
+    participantes: { min: 6, max: 30 },
+    materiales: ["Una linterna o vela (la 'flor roja')"],
+    duracion: 15,
+    descripcion: "Ronda inspirada en el fuego del hombre del Libro de la Selva. Se pasa la 'flor roja' al compás de una canción.",
+    instrucciones: [
+      "Todos en círculo sentados; un lobato sostiene la 'flor roja' (linterna o vela).",
+      "La Manada canta una canción de la selva mientras pasa la flor de mano en mano.",
+      "Cuando la canción se detiene, quien tenga la flor cuenta algo del Libro o dice una máxima.",
+      "Se repite varias rondas alternando preguntas."
+    ],
+    icono: "🔥"
+  },
+  {
+    id: "presa-quieta",
+    nombre: "La Presa Quieta",
+    tipo: "exterior",
+    ramas: ["manada"],
+    participantes: { min: 8, max: 25 },
+    materiales: ["Ninguno"],
+    duracion: 15,
+    descripcion: "Tipo 'rojo-amarillo-verde': los cazadores avanzan cuando el cazador no mira y se congelan cuando los mira.",
+    instrucciones: [
+      "Un cazador se ubica de espaldas al grupo, a 20 m.",
+      "Los lobatos avanzan en silencio cuando el cazador no mira.",
+      "Cuando el cazador grita '¡La presa quieta!' y voltea, todos deben quedar inmóviles.",
+      "Quien se mueva regresa al inicio.",
+      "Gana el primero que toca al cazador."
+    ],
+    icono: "🦌"
+  },
 ];
