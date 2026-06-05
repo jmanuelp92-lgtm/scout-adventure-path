@@ -23,6 +23,8 @@ export const techCategories: TechCategory[] = [
   { id: "primeros-auxilios", nombre: "Primeros Auxilios", icono: "🏥", color: "from-red-700 to-rose-500" },
   { id: "manual-salud", nombre: "Manual de Salud", icono: "💊", color: "from-pink-700 to-fuchsia-500" },
   { id: "campismo", nombre: "Campismo", icono: "⛺", color: "from-blue-700 to-cyan-500" },
+  { id: "manada", nombre: "Manada", icono: "🐺", color: "from-amber-800 to-orange-500" },
+  { id: "orientacion", nombre: "Orientación", icono: "🧭", color: "from-indigo-700 to-blue-500" },
 ];
 
 export const techniques: Technique[] = [
@@ -582,5 +584,206 @@ export const techniques: Technique[] = [
     consejos: ["Revisa el botiquín antes de CADA salida: repón lo que falte.", "Asigna un responsable del botiquín por patrulla.", "Verifica fechas de vencimiento cada 3 meses."],
     dificultad: "fácil",
     icono: "🧰"
+  },
+
+  // ===== TÉCNICAS DE MANADA =====
+  {
+    id: "ley-del-lobato",
+    nombre: "Ley del Lobato",
+    categoria: "manada",
+    descripcion: "Las dos leyes que todo lobato debe conocer y vivir. Base de la Manada.",
+    pasos: [
+      "1. El Lobato escucha al Viejo Lobo.",
+      "2. El Lobato no se escucha a sí mismo.",
+      "Repítela en cada reunión durante el Gran Aullido.",
+      "Conversa con los lobatos qué significa cada ley en su vida diaria.",
+      "Relaciónala con situaciones reales: colegio, casa, manada."
+    ],
+    consejos: ["Memorízala con gestos y juegos, no solo recitándola.", "Liga la Ley a personajes del Libro: Akela y Mowgli."],
+    dificultad: "fácil",
+    icono: "📜"
+  },
+  {
+    id: "maximas-de-baloo",
+    nombre: "Máximas de Baloo",
+    categoria: "manada",
+    descripcion: "Enseñanzas del oso Baloo, maestro de los lobatos, para vivir bien en la selva.",
+    pasos: [
+      "El Lobato piensa primero en los demás.",
+      "El Lobato abre los ojos y los oídos.",
+      "El Lobato es limpio, decente y alegre.",
+      "El Lobato dice siempre la verdad.",
+      "El Lobato es trabajador y servicial."
+    ],
+    consejos: ["Trabaja una máxima por mes en las reuniones.", "Premia con 'colmillos' o estrellas a quien viva una máxima."],
+    dificultad: "fácil",
+    icono: "🐻"
+  },
+  {
+    id: "promesa-lobato",
+    nombre: "Promesa del Lobato",
+    categoria: "manada",
+    descripcion: "Compromiso solemne del lobato ante la Manada y Akela.",
+    pasos: [
+      "'Yo prometo hacer lo mejor que pueda...'",
+      "'...por cumplir mis deberes para con Dios y mi Patria,...'",
+      "'...ayudar al prójimo en toda ocasión...'",
+      "'...y cumplir fielmente la Ley de la Manada.'",
+      "Se hace el saludo del lobato (dos dedos arriba)."
+    ],
+    consejos: ["La Promesa se hace una sola vez, en ceremonia especial.", "Prepara al lobato durante varias reuniones antes."],
+    dificultad: "fácil",
+    icono: "✋"
+  },
+  {
+    id: "gran-aullido-tecnica",
+    nombre: "El Gran Aullido (cómo hacerlo)",
+    categoria: "manada",
+    descripcion: "Ceremonia de apertura y cierre que une a toda la Manada en torno a Akela.",
+    pasos: [
+      "Akela grita: '¡Manada, manada, manada!'",
+      "Los lobatos corren y forman círculo perfecto alrededor.",
+      "A la señal, se ponen en cuclillas tocando el suelo con los dedos como orejas.",
+      "Aúllan fuerte: '¡Ah-eh-la! ¡Haremos lo mejor!'",
+      "Se ponen de pie haciendo el saludo y un lobato grita '¡Mejor!', y todos responden '¡Mejor, mejor, mejor!'."
+    ],
+    consejos: ["Practica la formación rápida del círculo: parte del juego.", "Akela siempre al centro mirando al norte."],
+    dificultad: "fácil",
+    icono: "🌕"
+  },
+  {
+    id: "seisena",
+    nombre: "La Seisena",
+    categoria: "manada",
+    descripcion: "Pequeño grupo de 6 lobatos dirigido por un Seisenero. Base del trabajo en la Manada.",
+    pasos: [
+      "La Manada se divide en seisenas de 6 lobatos cada una.",
+      "Cada seisena tiene un color (amarillo, café, gris, negro, blanco, rojo).",
+      "El Seisenero es el lobato más experimentado, ayudado por un Subseisenero.",
+      "La seisena trabaja unida en juegos, postas y servicios.",
+      "Compiten sanamente entre seisenas en la Carrera de Seisenas."
+    ],
+    consejos: ["Rota los roles de seisenero cada 3-6 meses.", "Cada seisena puede tener un grito y un símbolo propio."],
+    dificultad: "fácil",
+    icono: "🎨"
+  },
+  {
+    id: "saludo-lobato",
+    nombre: "Saludo y Seña del Lobato",
+    categoria: "manada",
+    descripcion: "Gestos propios del lobato que lo identifican como parte de la Manada mundial.",
+    pasos: [
+      "Saludo: dos dedos (índice y medio) levantados formando una V, representan las orejas del lobo.",
+      "Mano derecha a la altura de la sien, codo a 90°.",
+      "Apretón de manos: con la mano izquierda (mano del corazón).",
+      "Lema: '¡Haremos lo mejor!'",
+      "Saluda al entrar y salir del Cubil y al ver la bandera."
+    ],
+    consejos: ["Practícalo hasta que sea natural."],
+    dificultad: "fácil",
+    icono: "✌️"
+  },
+
+  // ===== ORIENTACIÓN =====
+  {
+    id: "norte-sin-brujula",
+    nombre: "Encontrar el Norte sin Brújula",
+    categoria: "orientacion",
+    descripcion: "Métodos clásicos scouts para orientarse usando el sol, las estrellas o un reloj.",
+    pasos: [
+      "Sol: sale por el Este y se pone por el Oeste. Al mediodía indica el Norte (hemisferio sur).",
+      "Reloj análogo: apunta la manecilla horaria al sol; la bisectriz entre la manecilla y las 12 indica el Norte.",
+      "Palo y sombra: clava un palo vertical, marca la punta de su sombra; espera 15 min y marca de nuevo. La línea va de Oeste a Este.",
+      "De noche: en Colombia busca la Cruz del Sur; prolonga su eje mayor 4,5 veces y ese punto es el Sur celeste.",
+      "Vegetación: el musgo crece más en la cara húmeda y sombreada de los árboles."
+    ],
+    consejos: ["Confirma con dos métodos si es posible."],
+    dificultad: "medio",
+    icono: "🧭"
+  },
+  {
+    id: "uso-brujula",
+    nombre: "Uso Básico de la Brújula",
+    categoria: "orientacion",
+    descripcion: "Cómo tomar un rumbo y seguirlo con una brújula tipo Silva.",
+    pasos: [
+      "Sostén la brújula horizontal a la altura del pecho.",
+      "Gira tu cuerpo hasta que la aguja roja apunte al Norte (N) del limbo.",
+      "Para tomar un rumbo: gira el limbo hasta alinear la dirección deseada con la flecha de marcha.",
+      "Sigue la flecha de marcha caminando sin perder el norte de la aguja.",
+      "Cada 50-100 metros, verifica de nuevo la aguja."
+    ],
+    consejos: ["Aléjate de objetos metálicos y celulares (alteran la lectura)."],
+    dificultad: "medio",
+    icono: "🧭"
+  },
+  {
+    id: "mapa-topografico",
+    nombre: "Leer un Mapa Topográfico",
+    categoria: "orientacion",
+    descripcion: "Interpretar curvas de nivel, símbolos y escala de un mapa para orientarse.",
+    pasos: [
+      "Orienta el mapa: alinea el Norte del mapa con el Norte real (con brújula).",
+      "Escala: 1:25.000 significa que 1 cm en el mapa = 250 m reales.",
+      "Curvas de nivel: líneas que unen puntos a igual altitud. Muy juntas = pendiente fuerte.",
+      "Identifica símbolos: ríos (azul), bosques (verde), construcciones (negro), caminos (rojo).",
+      "Localiza tu posición usando 2-3 puntos visibles del terreno."
+    ],
+    consejos: ["Lleva el mapa en bolsa plástica para protegerlo."],
+    dificultad: "avanzado",
+    icono: "🗺️"
+  },
+
+  // ===== CAMPISMO ADICIONAL =====
+  {
+    id: "armar-mochila",
+    nombre: "Cómo Armar la Mochila",
+    categoria: "campismo",
+    descripcion: "Orden correcto para empacar la mochila scout y caminar cómodo todo el día.",
+    pasos: [
+      "Fondo: bolsa de dormir y ropa para dormir.",
+      "Centro pegado a la espalda: lo más pesado (carpa, comida enlatada, agua).",
+      "Centro exterior: ropa y cosas de peso medio.",
+      "Arriba: chaqueta impermeable, gorra, botiquín.",
+      "Bolsillos laterales: cantimplora, linterna, snacks, navaja.",
+      "Atado afuera: aislante y, si llueve, cubre-mochila."
+    ],
+    consejos: ["La mochila no debe pesar más del 20% de tu peso corporal.", "Ajusta primero la correa de cadera, luego los hombros."],
+    dificultad: "fácil",
+    icono: "🎒"
+  },
+  {
+    id: "fuego-seguro",
+    nombre: "Encender Fuego de Forma Segura",
+    categoria: "campismo",
+    descripcion: "Técnica básica de fuego de campamento respetando la naturaleza y la seguridad.",
+    pasos: [
+      "Elige el lugar: zona despejada, lejos de pasto seco, árboles y carpas.",
+      "Construye un círculo de piedras para contener el fuego.",
+      "Prepara tres tipos de leña: yesca (hojas, papel), astillas (palitos delgados), leña gruesa.",
+      "Forma una pirámide con la yesca al centro y las astillas alrededor.",
+      "Enciende desde abajo soplando suave en la base.",
+      "Añade leña gruesa solo cuando ya hay buenas llamas.",
+      "Apaga COMPLETAMENTE con agua y revuelve las cenizas antes de irte."
+    ],
+    consejos: ["Nunca dejes el fuego solo.", "Ten agua y tierra a mano para apagar."],
+    dificultad: "medio",
+    icono: "🔥"
+  },
+  {
+    id: "armar-carpa",
+    nombre: "Armar una Carpa en 5 Pasos",
+    categoria: "campismo",
+    descripcion: "Cómo montar una carpa de campismo rápido y bien tensionada.",
+    pasos: [
+      "Elige terreno plano, sin piedras ni ramas, lejos de zonas inundables.",
+      "Extiende el plástico (sobre-piso) en el suelo.",
+      "Despliega la carpa encima, con la puerta lejos del viento.",
+      "Arma los parantes y pásalos por las cintas; levanta la carpa.",
+      "Clava las estacas en las 4 esquinas tensionando bien; pon el sobre-techo si llueve."
+    ],
+    consejos: ["Practica antes en casa.", "Cava una pequeña zanja alrededor si esperas lluvia."],
+    dificultad: "medio",
+    icono: "⛺"
   },
 ];
