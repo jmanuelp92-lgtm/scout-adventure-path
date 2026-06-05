@@ -786,4 +786,144 @@ export const techniques: Technique[] = [
     dificultad: "medio",
     icono: "⛺"
   },
+
+  // ===== TÉCNICAS ADICIONALES (Reporte ASC/WOSM) =====
+  {
+    id: "nudo-de-ocho",
+    nombre: "Nudo de Ocho",
+    categoria: "nudos",
+    descripcion: "Nudo de tope que se forma como un '8'. Evita que la cuerda se escape por un agujero o argolla. Fácil de deshacer.",
+    pasos: [
+      "Forma un bucle con el cabo libre cruzando sobre la cuerda principal.",
+      "Lleva el cabo libre por DETRÁS de la cuerda principal.",
+      "Pasa el cabo libre por DENTRO del bucle inicial, dibujando un '8'.",
+      "Ajusta tirando del cabo y de la cuerda principal.",
+      "Verifica: debe verse claramente la forma de ocho."
+    ],
+    consejos: ["Ideal como base de pulseras de paracord.", "Más fácil de deshacer que el nudo simple después de cargar peso."],
+    dificultad: "fácil",
+    icono: "8️⃣"
+  },
+  {
+    id: "pls",
+    nombre: "Posición Lateral de Seguridad (PLS)",
+    categoria: "primeros-auxilios",
+    descripcion: "Posición correcta para una persona inconsciente que respira. Evita atragantamiento mientras llega ayuda.",
+    pasos: [
+      "Verifica que la persona respira pero no responde.",
+      "Coloca su brazo más cercano a ti en ángulo recto, palma hacia arriba.",
+      "Cruza el otro brazo sobre el pecho con la mano en la mejilla opuesta.",
+      "Dobla la pierna lejana en ángulo recto con el pie apoyado en el suelo.",
+      "Tira con cuidado de esa rodilla y gira a la persona hacia ti, sobre su costado.",
+      "Inclina la cabeza ligeramente hacia atrás para mantener la vía aérea abierta.",
+      "Llama al 123 y vigila la respiración hasta que llegue ayuda."
+    ],
+    consejos: ["No usar si sospechas lesión de cuello o columna.", "Practica con un compañero como simulacro."],
+    dificultad: "medio",
+    icono: "🆘"
+  },
+  {
+    id: "cuaderno-de-campo",
+    nombre: "Cuaderno de Campo",
+    categoria: "campismo",
+    descripcion: "Pequeño cuaderno donde el scout dibuja, anota y guarda recuerdos de cada excursión. Desarrolla observación.",
+    pasos: [
+      "Lleva un cuaderno tamaño bolsillo y un lápiz a cada salida.",
+      "Anota fecha, lugar, hora y clima al inicio.",
+      "Dibuja 3 cosas que llamen tu atención (planta, animal, rastro, paisaje).",
+      "Anota lo que aprendiste y una emoción del día.",
+      "Pega hojas, plumas o boletos como recuerdo (sin dañar la naturaleza).",
+      "Comparte tu cuaderno en la Roca del Consejo al volver."
+    ],
+    consejos: ["No tienes que dibujar perfecto: la idea es observar.", "Personalízalo con tu nombre y un emblema propio."],
+    dificultad: "fácil",
+    icono: "📓"
+  },
+  {
+    id: "sin-dejar-rastro",
+    nombre: "Sin Dejar Rastro (LNT)",
+    categoria: "campismo",
+    descripcion: "Principios para disfrutar la naturaleza sin dañarla. Base de la ética scout al aire libre.",
+    pasos: [
+      "Planifica con tiempo: lleva sólo lo necesario y empaca todo en bolsas reutilizables.",
+      "Camina por senderos marcados; no abras nuevos caminos.",
+      "Acampa en zonas autorizadas, lejos de fuentes de agua (mínimo 50 m).",
+      "Empaca TODA la basura, incluso restos de comida y papel higiénico.",
+      "No tomes nada (flores, piedras, animales); deja todo como lo encontraste.",
+      "Minimiza el impacto del fuego: usa estufa o fuego controlado en zona permitida.",
+      "Respeta la fauna: obsérvala de lejos, nunca la alimentes ni la persigas.",
+      "Sé considerado con otros visitantes y comunidades cercanas."
+    ],
+    consejos: ["Regla scout: 'No tomes nada excepto fotos, no dejes nada excepto huellas.'", "Enseña LNT con el ejemplo, no con sermones."],
+    dificultad: "fácil",
+    icono: "🌱"
+  },
+  {
+    id: "clasificacion-residuos",
+    nombre: "Clasificación de Residuos",
+    categoria: "campismo",
+    descripcion: "Cómo separar correctamente los residuos en campamento o en el cubil para cuidar la naturaleza.",
+    pasos: [
+      "Prepara 3 recipientes etiquetados: ORGÁNICO (verde), RECICLABLE (blanco), NO APROVECHABLE (negro).",
+      "Orgánico: restos de comida, cáscaras, papel sucio con comida.",
+      "Reciclable: plástico limpio, latas, cartón seco, vidrio.",
+      "No aproveachable: pañales, papel higiénico usado, envoltorios mixtos.",
+      "Pilas y baterías: bolsa aparte, NUNCA al suelo (son tóxicas).",
+      "Al cerrar campamento, llévate todo y deposítalo correctamente en la ciudad."
+    ],
+    consejos: ["En Colombia se usa el código de 3 bolsas desde 2021.", "Compite por seisenas: la que mejor clasifique gana puntos."],
+    dificultad: "fácil",
+    icono: "♻️"
+  },
+  {
+    id: "pulsera-paracord",
+    nombre: "Pulsera de Paracord",
+    categoria: "manada",
+    descripcion: "Manualidad clásica del lobato: una pulsera tejida con nudo plano (cobra) que se puede usar como cuerda en emergencia.",
+    pasos: [
+      "Corta 1 metro de cuerda paracord (o cordón resistente).",
+      "Forma un bucle y mide la pulsera contra tu muñeca.",
+      "Empieza el nudo plano: el cabo izquierdo cruza sobre el centro; el derecho pasa por detrás y por el ojo izquierdo.",
+      "Aprieta. Repite invirtiendo lados (ahora el derecho sobre el centro, el izquierdo por detrás).",
+      "Sigue alternando hasta cubrir toda la pulsera.",
+      "Corta el sobrante y funde los extremos con la ayuda de un adulto."
+    ],
+    consejos: ["Usa dos colores para una pulsera más vistosa.", "Personalízala con el color de tu seisena."],
+    dificultad: "medio",
+    icono: "📿"
+  },
+  {
+    id: "totem-seisena",
+    nombre: "Tótem de Seisena",
+    categoria: "manada",
+    descripcion: "Símbolo de identidad de cada seisena construido con materiales naturales y elementos significativos.",
+    pasos: [
+      "La seisena elige un animal o personaje del Libro de la Selva como espíritu.",
+      "Consigue un palo de bambú o madera de 80-100 cm como base.",
+      "Decora con: pintura del color de la seisena, plumas, semillas, cintas.",
+      "Cada lobato añade un elemento personal que represente algo que aporta a la seisena.",
+      "Escribe el nombre de la seisena y la fecha de creación.",
+      "Presenta el tótem en la Roca del Consejo; debe estar presente en cada reunión."
+    ],
+    consejos: ["Es un proyecto a varias reuniones; no se hace en un día.", "El tótem viaja con la seisena a los campamentos."],
+    dificultad: "medio",
+    icono: "🪵"
+  },
+  {
+    id: "codigo-semaforo",
+    nombre: "Código Semáforo (Banderas)",
+    categoria: "senales",
+    descripcion: "Sistema scout de comunicación a distancia con dos banderines de colores. Cada posición del cuerpo y banderas indica una letra.",
+    pasos: [
+      "Toma dos banderines de colores contrastantes (rojo/amarillo) uno en cada mano.",
+      "El cuerpo se mantiene firme mirando al receptor.",
+      "Cada letra se forma colocando los brazos en posiciones específicas (ej: 'A' = brazo derecho abajo-derecha; 'B' = brazo derecho horizontal).",
+      "Para enviar un mensaje, deletrea letra por letra haciendo pausa entre cada una.",
+      "El receptor anota letra por letra y reconstruye la palabra.",
+      "Practica primero con palabras cortas: SOS, AYUDA, OK."
+    ],
+    consejos: ["Aprende primero las letras del nombre propio.", "Pídele a un dirigente la tabla completa del código semáforo."],
+    dificultad: "avanzado",
+    icono: "🚩"
+  },
 ];
